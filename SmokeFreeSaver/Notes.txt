@@ -1,0 +1,24 @@
+﻿Create ViewModel Class (SmokeFreeViewModel) in Models folder
+
+Create properties in viewmodel:
+- Counter (counting the days smoke free) (int)
+- Price of pack of cigarettes/vape (double/decimal)
+- Total money saved (double/decimal)
+- How many packs per week (int)
+
+Click button did you smoke today (Y/N)
+
+Start with ViewModels
+
+Smoke-Free Logic (class library) will have methods to calculate
+Another project (data access) - Repository - will store results
+
+Stored in database:
+- ID (int)
+- Total Saved (decimal/double)
+- Total Days without Smoking (decimal/double)
+
+2 methods:
+- Have you smoked today? (if no - add 1 more day, add amount of money, if yes, subtract amount for pack and reset total day timer)
+(methods will be in controller)
+
