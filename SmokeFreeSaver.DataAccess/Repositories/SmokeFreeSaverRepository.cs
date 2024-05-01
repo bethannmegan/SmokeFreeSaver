@@ -31,10 +31,7 @@ namespace SmokeFreeSaver.DataAccess.Repositories
             SmokeFreeSaverModel existingEntry = _context.SmokeFreeSaverModel.Find(entry.ID);
 
             existingEntry.CurrentDate = entry.CurrentDate;
-            existingEntry.NumberOfCigarettesSmoked = entry.NumberOfCigarettesSmoked;
-            existingEntry.NumberOfCigarettesNotSmoked = entry.NumberOfCigarettesNotSmoked;
-            existingEntry.NumberOfPacksBought = entry.NumberOfPacksBought;
-            existingEntry.CostPerPack = entry.CostPerPack;
+            existingEntry.EndDate = entry.EndDate;
 
             _context.SaveChanges();
 
