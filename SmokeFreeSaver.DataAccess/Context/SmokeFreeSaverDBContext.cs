@@ -21,19 +21,24 @@ namespace SmokeFreeSaver.DataAccess.Context
 
         }
 
-        public virtual DbSet<SmokeFreeSaver> SmokeFreeSaver { get; set; }
+        public virtual DbSet<SmokeFreeSaverModel> SmokeFreeSaverModel { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<SmokeFreeSaver>(
+            modelBuilder.Entity<SmokeFreeSaverModel>(
                 entity =>
                 {
                     entity.HasKey(e => e.ID);
                     entity.Property(e => e.ID);
-                    entity.Property(e => e.DaysWithoutSmoking);
-                    entity.Property(e => e.TotalMoneySaved);
+                    entity.Property(e => e.CurrentDate);
+                    entity.Property(e => e.NumberOfCigarettesSmoked);
+                    entity.Property(e => e.NumberOfCigarettesNotSmoked);
+                    entity.Property(e => e.NumberOfPacksBought);
+                    entity.Property(e => e.CostPerPack);
                 }
                 );
+
+            
             OnModelCreatingPartial(modelBuilder);
 
         }

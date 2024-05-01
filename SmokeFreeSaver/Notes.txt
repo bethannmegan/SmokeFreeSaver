@@ -22,3 +22,39 @@ Stored in database:
 - Have you smoked today? (if no - add 1 more day, add amount of money, if yes, subtract amount for pack and reset total day timer)
 (methods will be in controller)
 
+
+Alternate ViewModel Architecture 
+
+public int Id { get; set; }
+
+        public DateOnly CurrentDate { get; set; }
+
+        public int NumberOfCigarettesNotSmoked { get; set; }
+
+        public decimal CostPerPack { get; set; }
+
+        public DidNotSmokeViewModel(DataAccess.Context.SmokeFreeSaverDBContext _context) { }
+
+        public DidNotSmokeViewModel(DidNotSmokeModel no)
+        {
+            Id = no.ID;
+            CurrentDate = no.CurrentDate;
+            NumberOfCigarettesNotSmoked = no.NumberOfCigarettesNotSmoked;
+            CostPerPack = no.CostPerPack;
+        }
+
+        public DidNotSmokeViewModel(SmokeFreeSaverDBContext _context, int id) : this(_context)
+        {
+        }
+
+        public DidNotSmokeModel ConvertViewModelToModel()
+        {
+            DidNotSmokeModel no = new DidNotSmokeModel();
+            no.ID = Id;
+            no.CurrentDate = CurrentDate;
+            no.NumberOfCigarettesNotSmoked = NumberOfCigarettesNotSmoked;
+            no.CostPerPack = CostPerPack;
+
+            return no;
+
+        }

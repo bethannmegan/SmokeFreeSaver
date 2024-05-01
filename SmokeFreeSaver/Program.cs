@@ -1,7 +1,13 @@
+using SmokeFreeSaver.DataAccess.Context;
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+builder.Services.AddDbContext<SmokeFreeSaverDBContext>(item =>
+                item.UseSqlServer(builder.Configuration.GetConnectionString("SmokeFreeSaver")));
 
 var app = builder.Build();
 

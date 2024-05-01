@@ -1,8 +1,32 @@
-﻿@{
+﻿@using SmokeFreeSaver.DataAccess.Models;
+
+@{
     ViewData["Title"] = "Home Page";
 }
 
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+    <h1 class="display-4">WELCOME!</h1>
+    <h1 class="display-4">Did you smoke today?</h1>
+
+    <button type="button" onclick="javascript:openLocation('/SmokeFreeSaver/SmokedToday')" class="btn btn-secondary btn-sm">YES</button>
+    <button type="button" onclick="javascript:openLocation('/SmokeFreeSaver/DidNotSmoke')" class="btn btn-danger btn-sm">NO</button>
+    <div>
+ </div>
+<script type="text/javascript">
+    function openLocation(url) {
+        window.location.href = url;
+    }
+
+    function answerYes(id) {
+        $("#hdnAnswerYesId").val(id);
+        $("#enterModal").modal("show");
+    }
+    function answerNo(id) {
+        $("#hdnAnswerNoId").val(id);
+        $("#enterModal").modal("show");
+    }
+
+</script>
+
+<input type="hidden" id="hdnDidYouSmokeTodayId" value="0" />
+

@@ -1,0 +1,40 @@
+﻿@* @model SmokedTodayViewModel
+@using SmokeFreeSaver.DataAccess.Models
+
+<form action="~/SmokedToday/Index" method="post">
+    <div>
+        <div class="form-row">
+            <div class="col-md-6 offset-md-3 form-group">
+                <label>Today's Date</label>
+                <input type="date" class="form-control" name="currentDate" value="@Model.CurrentEntry.CurrentDate" />
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="col-md-6 offset-md-3 form-group">
+                <label>How many cigarettes have you smoked today?</label>
+                <input type="number" class="form-control" name="numberOfCigarettesSmoked" value="@Model.CurrentEntry.NumberOfCigarettesSmoked" />
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="col-md-6 offset-md-3 form-group">
+                <label>How many packs have you bought today?</label>
+                <input type="number" class="form-control" name="numberOfPacksBought" value="@Model.CurrentEntry.NumberOfPacksBought" />
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="col-md-6 offset-md-3 form-group">
+                <label>How much does a pack cost?</label>
+                <input type="number" class="form-control" name="costPerPack" value="@Model.CurrentEntry.CostPerPack" />
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="col-md-6 offset-md-3">
+                <button type="submit" class="btn btn-primary">Save</button>
+                <button type="submit" class="btn btn-primary">Go To Dashboard</button>
+            </div>
+        </div>
+    </div>
+    <input type="hidden" name="id" value="@Model.CurrentEntry.ID" />
+</form>
+ *@
