@@ -36,11 +36,25 @@ namespace SmokeFreeSaver.Controllers
         }
 
         [HttpPost]
-        public IActionResult Index(int ID, DateOnly currentDate, int numberOfCigarettesSmoked, int numberOfCigarettesNotSmoked, int numberOfPacksBought, decimal costPerPack)
+        public IActionResult SmokedToday(int id, DateOnly currentDate, DateOnly endDate)
         {
-            SmokeFreeSaverViewModel model = new SmokeFreeSaverViewModel(_context);
+            SmokedTodayViewModel model = new SmokedTodayViewModel(_context);
 
-            SmokeFreeSaverModel entry = new(ID, currentDate, numberOfCigarettesSmoked, numberOfCigarettesNotSmoked, numberOfPacksBought, costPerPack);
+            SmokeFreeSaverModel entry = new(id, currentDate, endDate);
+
+            model.SaveEntry(entry);
+            model.IsActionSuccess = true;
+            model.ActionMessage = "Entry has been saved successfully!";
+
+            return View(model);
+        }
+
+        [HttpPost]
+        public IActionResult DidNotSmoke(int id, DateOnly currentDate, DateOnly endDate)
+        {
+            DidNotSmokeViewModel model = new DidNotSmokeViewModel(_context);
+
+            SmokeFreeSaverModel entry = new(id, currentDate, endDate);
 
             model.SaveEntry(entry);
             model.IsActionSuccess = true;
