@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Mvc;
 using SmokeFreeSaver.DataAccess.Context;
 using SmokeFreeSaver.DataAccess.Models;
 using SmokeFreeSaver.Models;
+using SmokeFreeSaver.Services;
 using System.Diagnostics;
 
 namespace SmokeFreeSaver.Controllers
@@ -11,6 +12,8 @@ namespace SmokeFreeSaver.Controllers
         private readonly ILogger<HomeController> _logger;
 
         private SmokeFreeSaverDBContext _context;
+
+        private SmokeFreeService _service;
 
         public HomeController(ILogger<HomeController> logger, SmokeFreeSaverDBContext context)
         {
@@ -29,6 +32,22 @@ namespace SmokeFreeSaver.Controllers
             return View();
         }
 
+        [HttpGet]
+        public IActionResult TestView()
+        {
+            return View();
+        }
+
+        public IActionResult DidNotSmoke()
+        {
+            return View();
+        }
+
+        public IActionResult SmokedToday() 
+        {
+            return View();
+        }
+
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
@@ -38,7 +57,7 @@ namespace SmokeFreeSaver.Controllers
         [HttpPost]
         public IActionResult SmokedToday(int id, DateOnly currentDate, DateOnly endDate)
         {
-            SmokedTodayViewModel model = new SmokedTodayViewModel(_context);
+            SmokeFreeSaverViewModel model = new SmokeFreeSaverViewModel(_context);
 
             SmokeFreeSaverModel entry = new(id, currentDate, endDate);
 
@@ -52,7 +71,7 @@ namespace SmokeFreeSaver.Controllers
         [HttpPost]
         public IActionResult DidNotSmoke(int id, DateOnly currentDate, DateOnly endDate)
         {
-            DidNotSmokeViewModel model = new DidNotSmokeViewModel(_context);
+            SmokeFreeSaverViewModel model = new SmokeFreeSaverViewModel(_context);
 
             SmokeFreeSaverModel entry = new(id, currentDate, endDate);
 
