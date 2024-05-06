@@ -23,14 +23,14 @@
 //            CurrentEntry = EntryList.FirstOrDefault();
 //        }
 
-//        public SmokedTodayViewModel(SmokeFreeSaverDBContext context, int Id)
-//       {
+//        public SmokedTodayViewModel(SmokeFreeSaverDBContext context, int ID)
+//        {
 //            _repo = new SmokeFreeSaverRepository(context);
 //            EntryList = GetAllEntries();
 
-//            if (Id > 0)
+//            if (ID > 0)
 //            {
-//               CurrentEntry = GetEntry(Id);
+//                CurrentEntry = GetEntry(ID);
 //            }
 //            else
 //            {
@@ -38,7 +38,7 @@
 //            }
 //        }
 
-//        public void SaveEntry(SmokedTodayModel entry)
+//        public void SaveEntry(SmokeFreeSaverModel entry)
 //        {
 //            if (entry.ID > 0)
 //            {
