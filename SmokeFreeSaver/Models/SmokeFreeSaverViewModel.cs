@@ -16,6 +16,8 @@ namespace SmokeFreeSaver.Models
 
         public string ActionMessage { get; set; }
 
+        public decimal TotalSaved { get; set; }
+
         public SmokeFreeSaverViewModel(SmokeFreeSaverDBContext context)
         {
             _repo = new SmokeFreeSaverRepository(context);

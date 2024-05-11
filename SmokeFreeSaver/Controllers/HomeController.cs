@@ -48,6 +48,11 @@ namespace SmokeFreeSaver.Controllers
             return View();
         }
 
+        public IActionResult Dashboard()
+        {
+            return View();
+        }
+
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
@@ -55,11 +60,11 @@ namespace SmokeFreeSaver.Controllers
         }
 
         [HttpPost]
-        public IActionResult SmokedToday(int id, DateOnly currentDate, DateOnly endDate)
+        public IActionResult SmokedToday(int id, DateOnly currentDate, DateOnly endDate, int numberOfCigarettesSmoked, int numberOfPacksBought)
         {
             SmokeFreeSaverViewModel model = new SmokeFreeSaverViewModel(_context);
 
-            SmokeFreeSaverModel entry = new(id, currentDate, endDate);
+            SmokeFreeSaverModel entry = new(id, currentDate, endDate, numberOfCigarettesSmoked, numberOfPacksBought);
 
             model.SaveEntry(entry);
             model.IsActionSuccess = true;
@@ -69,11 +74,11 @@ namespace SmokeFreeSaver.Controllers
         }
 
         [HttpPost]
-        public IActionResult DidNotSmoke(int id, DateOnly currentDate, DateOnly endDate)
+        public IActionResult DidNotSmoke(int id, DateOnly currentDate, DateOnly endDate, int numberOfCigarettesSmoked, int numberOfPacksBought)
         {
             SmokeFreeSaverViewModel model = new SmokeFreeSaverViewModel(_context);
 
-            SmokeFreeSaverModel entry = new(id, currentDate, endDate);
+            SmokeFreeSaverModel entry = new(id, currentDate, endDate, numberOfCigarettesSmoked, numberOfPacksBought);
 
             model.SaveEntry(entry);
             model.IsActionSuccess = true;
@@ -87,5 +92,10 @@ namespace SmokeFreeSaver.Controllers
             SmokeFreeSaverViewModel model = new SmokeFreeSaverViewModel(_context, id);
             return View(model);
         }
+
+        //public decimal TotalMoneySaved(int costPerPack,)
+        //{
+
+        //}
     }
 }

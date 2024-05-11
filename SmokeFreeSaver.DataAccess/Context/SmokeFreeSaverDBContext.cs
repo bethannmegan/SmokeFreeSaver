@@ -32,6 +32,8 @@ namespace SmokeFreeSaver.DataAccess.Context
                     entity.Property(e => e.ID);
                     entity.Property(e => e.CurrentDate);
                     entity.Property(e => e.EndDate);
+                    entity.Property(e => e.NumberOfCigarettesSmoked);
+                    entity.Property(e => e.NumberOfPacksBought);
                 }
                 );
 

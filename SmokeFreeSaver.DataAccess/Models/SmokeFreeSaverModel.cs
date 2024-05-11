@@ -16,12 +16,18 @@ namespace SmokeFreeSaver.DataAccess.Models
 
         public DateOnly? EndDate { get; set; }
 
+        public int NumberOfCigarettesSmoked {  get; set; }
 
-        public SmokeFreeSaverModel(int id, DateOnly currentDate, DateOnly endDate)
+        public int NumberOfPacksBought { get; set; }
+
+
+        public SmokeFreeSaverModel(int id, DateOnly currentDate, DateOnly endDate, int numberOfCigarettesSmoked, int numberOfPacksBought)
         {
             ID = id;
             CurrentDate = currentDate;
             EndDate = endDate;
+            NumberOfCigarettesSmoked = numberOfCigarettesSmoked;
+            NumberOfPacksBought = numberOfPacksBought;
         }
 
         public SmokeFreeSaverModel()

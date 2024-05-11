@@ -1,26 +1,25 @@
-﻿@model SmokeFreeSaverViewModel
-@using SmokeFreeSaver.DataAccess.Models
+﻿@using SmokeFreeSaver.DataAccess.Models
 
 <form action="~/Home/SmokedToday" method="post">
     <div>
         <div class="form-row">
             <div class="col-md-6 offset-md-3 form-group">
                 <label>Today's Date</label>
-                <input type="date" class="form-control" name="currentDate" value="@Model.CurrentEntry.CurrentDate" />
+                <input type="date" class="form-control" name="currentDate" />
             </div>
         </div>
-@*         <div class="form-row">
+        <div class="form-row">
             <div class="col-md-6 offset-md-3 form-group">
                 <label>How many cigarettes have you smoked today?</label>
-                <input type="number" class="form-control" name="numberOfCigarettesSmoked" value="@Model.CurrentEntry.NumberOfCigarettesSmoked" />
+                <input type="number" class="form-control" name="numberOfCigarettesSmoked"/>
             </div>
         </div>
         <div class="form-row">
             <div class="col-md-6 offset-md-3 form-group">
                 <label>How many packs have you bought today?</label>
-                <input type="number" class="form-control" name="numberOfPacksBought" value="@Model.CurrentEntry.NumberOfPacksBought" />
+                <input type="number" class="form-control" name="numberOfPacksBought"/>
             </div>
-        </div> *@
+        </div>
 
         <div class="form-row">
             <div class="col-md-6 offset-md-3">
@@ -29,5 +28,4 @@
             </div>
         </div>
     </div>
-    <input type="hidden" name="id" value="@Model.CurrentEntry.ID" />
 </form>
