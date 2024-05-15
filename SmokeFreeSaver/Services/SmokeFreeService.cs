@@ -2,7 +2,7 @@
 
 namespace SmokeFreeSaver.Services
 {
-    public class SmokeFreeService
+    public static class SmokeFreeService
     {
         public static decimal costPerPack = 10.00M;
 
@@ -22,23 +22,23 @@ namespace SmokeFreeSaver.Services
         //    }
         //}
 
-            private static decimal CalculateSavingsPerDay(int cigarettesPerDay, decimal costPerPack)
+            public static decimal CalculateSavingsPerDay(int cigarettesPerDay, decimal costPerPack)
             {
                 decimal savingsPerDay = (cigarettesPerDay / cigarettesPerPack) * costPerPack;
 
                 return savingsPerDay;
             }
 
-            private static decimal CalculateSavingsPerPeriod(decimal savingsPerDay, int daysNotSmoked)
+            public static decimal CalculateSavingsPerPeriod(decimal savingsPerDay, int daysNotSmoked)
             {
                 decimal savingsPerPeriod = savingsPerDay * daysNotSmoked;
 
                 return savingsPerPeriod;
             }
 
-            public decimal MoneySpentOnPacks(int packsBoughtToday)
+            public static decimal MoneySpentOnPacks(int packsBoughtToday)
             {
-            return packsBoughtToday * costPerPack; 
+                return packsBoughtToday * costPerPack; 
             }
 
         

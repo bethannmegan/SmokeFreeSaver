@@ -13,8 +13,6 @@ namespace SmokeFreeSaver.Controllers
 
         private SmokeFreeSaverDBContext _context;
 
-        private SmokeFreeService _service;
-
         public HomeController(ILogger<HomeController> logger, SmokeFreeSaverDBContext context)
         {
             _logger = logger;
@@ -29,6 +27,7 @@ namespace SmokeFreeSaver.Controllers
 
         public IActionResult Privacy()
         {
+            var example = SmokeFreeService.CalculateSavingsPerDay(5, 10.00M); //set this in viewmodel
             return View();
         }
 
@@ -70,7 +69,7 @@ namespace SmokeFreeSaver.Controllers
             model.IsActionSuccess = true;
             model.ActionMessage = "Entry has been saved successfully!";
 
-            return View(model);
+            return RedirectToAction("Index");
         }
 
         [HttpPost]
